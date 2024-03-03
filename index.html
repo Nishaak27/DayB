@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @keyframes sparkle {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .sparkles {
+      position: absolute;
+      display: inline-block;
+      font-size: 50px;
+      color: #FFD700;
+      animation: sparkle 1s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday!</h1>
+  <div class="sparkles">✨</div>
+
+  <script>
+    function generateSparkles() {
+      const sparklesContainer = document.createElement('div');
+      sparklesContainer.className = 'sparkles-container';
+      document.body.appendChild(sparklesContainer);
+
+      for (let i = 0; i < 50; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkles';
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        sparklesContainer.appendChild(sparkle);
+      }
+    }
+
+    generateSparkles();
+  </script>
+</body>
+</html>
